@@ -10,7 +10,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", Arial, sans-serif;
-  background: var(--black);
+  background: #232325;
   color: var(--white);
   min-height: 100vh;
 }
@@ -49,35 +49,29 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--orange);
 }
-.container {
+
+/* Card-style section shadows */
+.hero,
+#about {
+  background: #232325;
+  border-radius: 18px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 26px 0 rgba(246, 134, 31, 0.1), 0 1.5px 10px 0 #14141433;
+  transition: box-shadow 0.3s;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero:hover,
+  #about:hover {
+    box-shadow: 0 8px 34px 0 rgba(246, 134, 31, 0.2), 0 2.5px 16px 0 #14141444;
+  }
 }
 section {
   padding: 4rem 0 3rem 0;
   border-bottom: 1px solid #272727;
-}
-.hero {
-  background: linear-gradient(120deg, #232325 80%, var(--orange) 300%);
-  text-align: left;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(20, 20, 20, 0.44);
-  z-index: 1;
-}
-.hero .container {
-  position: relative;
-  z-index: 2;
 }
 .hero h1 {
   font-size: 2.8rem;
@@ -92,6 +86,11 @@ section {
   color: var(--white);
   max-width: 600px;
   text-shadow: 1px 1px 8px #14141455;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 .cta-btn {
   background: var(--orange);
@@ -133,7 +132,7 @@ section {
   transition: box-shadow 0.2s;
 }
 .card:hover {
-  box-shadow: 0 4px 24px rgba(246, 134, 31, 0.1);
+  box-shadow: 0 8px 34px 0 rgba(246, 134, 31, 0.22), 0 2.5px 16px 0 #14141455;
 }
 ul.feature-list {
   padding: 0;
