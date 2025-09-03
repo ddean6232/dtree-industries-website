@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTree Industries | Business Process Automation & IoT Integration</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #1a1a1a;
+      --orange: #ff6600;
+      --white: #fff;
+      --gray: #333;
+    }
+    * {box-sizing: border-box;}
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+    }
+    nav {
+      background: var(--black);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 70px;
+      justify-content: space-between;
+    }
+    nav .logo { font-weight: 700; font-size: 2rem; color: var(--orange);}
+    nav ul {
+      list-style: none; margin: 0; padding: 0; display: flex;
+    }
+    nav ul li {
+      margin-left: 2rem;
+    }
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--orange);
+    }
+    .sidebar {
+      position: fixed;
+      left: 0; top: 70px;
+      width: 80px; height: calc(100% - 70px);
+      background: var(--gray);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+      z-index: 20;
+    }
+    .sidebar a {
+      color: var(--orange);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .sidebar a:hover { color: var(--white); }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    section {
+      padding: 4rem 0 3rem 100px;
+      border-bottom: 1px solid #272727;
+    }
+    .hero {
+      background: linear-gradient(120deg, var(--black) 60%, var(--orange) 140%);
+      text-align: left;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+      color: var(--orange);
+    }
+    .hero p {
+      font-size: 1.33rem;
+      margin-bottom: 2rem;
+      color: var(--white);
+      max-width: 600px;
+    }
+    .cta-btn {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #ff8533; }
+    .section-title { color: var(--orange); font-size: 2rem; margin-bottom: 1rem;}
+    .cards { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;}
+    .card {
+      background: #242424;
+      padding: 1.5rem;
+      border-radius: 8px;
+      flex: 1;
+      min-width: 230px;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--orange);
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 4px 24px rgba(255,102,0,0.10);}
+    ul.feature-list {padding: 0; list-style: none;}
+    ul.feature-list li:before {
+      content: '●';
+      color: var(--orange);
+      margin-right: 6px;
+    }
+    .testimonials {font-style: italic; margin-top: 2rem;}
+    .contact-form {
+      margin-top: 2rem;
+      max-width: 430px;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--orange);
+      font-weight: 600;
+    }
+    .contact-form input,.contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.2rem;
+      border-radius: 4px;
+      border: 1px solid #2c2c2c;
+      background: #2c2c2c;
+      color: var(--white);
+      font-size: 1rem;
+    }
+    .contact-form textarea { height: 100px; }
+    .contact-form button { width: 100%; }
+    footer {
+      background: #131313;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      font-size: 1rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--orange);
+    }
+    .footer-social {
+      padding: 1rem 0 0.5rem 0;
+    }
+    .footer-social a { color: var(--orange); text-decoration: none; margin: 0 0.5rem; font-size: 1.3rem;}
+    @media (max-width:700px) {
+      .container, section { padding: 1.2rem 0.7rem 1rem 1rem; }
+      nav {padding: 0 1rem;}
+      .sidebar { display: none;}
+      section {padding-left: 0;}
+      .cards {flex-direction: column;}
+    }
+  </style>
+  <!-- Font Awesome CDN for sidebar icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+
+<body>
+  <nav>
+    <span class="logo">DTree</span>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#casestudies">Case Studies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <aside class="sidebar">
+    <a href="#hero" title="Home"><i class="fas fa-home"></i></a>
+    <a href="#about" title="About"><i class="fas fa-address-card"></i></a>
+    <a href="#services" title="Services"><i class="fas fa-cogs"></i></a>
+    <a href="#casestudies" title="Case Studies"><i class="fas fa-chart-line"></i></a>
+    <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+  </aside>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <h1>Empowering Business Through Automation</h1>
+      <p>DTree Industries is your global partner in business process automation, IoT, and workflow integration. We deliver rapid, reliable solutions—driving data-led transformation for enterprises seeking a smarter, more connected future.</p>
+      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Request Consultation</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About DTree Industries</h2>
+      <p>Founded in 1997 in Calgary, DTree Industries has become a leader in streamlining operational efficiency for companies worldwide. Our expert team combines decades of engineering experience with cutting-edge technology to deliver scalable, secure solutions for tomorrow’s digital enterprises.</p>
+      <ul class="feature-list">
+        <li>Privately held, independent, and innovation-driven</li>
+        <li>Global reach with clients in finance, manufacturing, logistics, and more</li>
+        <li>Core values: Trust, agility, transparency, and excellence in delivery</li>
+        <li>Multi-disciplinary engineers, IoT specialists, and software designers</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Business Process Automation</h3>
+          <p>Automate repetitive operations and orchestrate workflows for efficiency, accuracy, and cost reduction. Our automation platform enables real-time synchronization and actionable insights from data.</p>
+        </div>
+        <div class="card">
+          <h3>IoT & Integration</h3>
+          <p>Connect devices, systems, and processes seamlessly. Transform sensors and smart tools into integrated networks—enabling predictive maintenance, remote control, and advanced analytics.</p>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>From portals to custom applications, we build robust web solutions with scalable APIs—empowering clients to interact, collaborate, and innovate from any device.</p>
+        </div>
+        <div class="card">
+          <h3>Consulting & Support</h3>
+          <p>Our technology strategists and support experts help assess needs, identify bottlenecks, and design tailored roadmaps to maximize business impact and technology ROI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="casestudies">
+    <div class="container">
+      <h2 class="section-title">Case Studies & Impact</h2>
+      <div class="cards">
+        <div class="card">
+          <h4>Efficiency Boost for Logistics Firm</h4>
+          <p>Integrated IoT logistics sensors and automated scheduling, cutting fleet downtime by 25% and saving $200k annually.</p>
+        </div>
+        <div class="card">
+          <h4>Manufacturing Digital Transformation</h4>
+          <p>Developed custom automation to streamline QA and compliance, reducing manual reporting hours by 60%.</p>
+        </div>
+        <div class="card">
+          <h4>Global Data Integration</h4>
+          <p>Connected multi-region subsidiaries using a unified web app for real-time analytics, enabling better executive decisions worldwide.</p>
+        </div>
+      </div>
+      <div class="testimonials">
+        <em>“DTree Industries automated our entire workflow—fast, professional, and results-driven. We recommend them for any scale.”</em>
+        <br>– Client, Financial Sector
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <form class="contact-form" autocomplete="off" name="contact" method="POST" data-netlify="true">
+        <label for="name">Your Name</label><input name="name" id="name" required>
+        <label for="email">Email</label><input name="email" id="email" type="email" required>
+        <label for="message">How can we help?</label><textarea name="message" id="message" required></textarea>
+        <button class="cta-btn" type="submit">Send Message</button>
+      </form>
+      <p>Or email: <a href="mailto:info@dtreeindustries.com" style="color:var(--orange);">info@dtreeindustries.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    &copy; 2025 DTree Industries Ltd. | All rights reserved.
+  </footer>
+</body>
+</html>
