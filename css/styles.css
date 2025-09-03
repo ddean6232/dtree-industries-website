@@ -1,5 +1,5 @@
 :root {
-  --black: #333;
+  --black: #232325;
   --orange: #f6861f;
   --white: #fff;
   --gray: #333;
@@ -29,7 +29,6 @@ nav {
 nav .logo img.main-logo {
   height: 50px;
   vertical-align: middle;
-  /* Optional: add margin-right if you want space between logo and links */
 }
 nav ul {
   list-style: none;
@@ -50,34 +49,49 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--orange);
 }
-
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 section {
-  padding: 4rem 0 3rem 100px;
+  padding: 4rem 0 3rem 0;
   border-bottom: 1px solid #272727;
 }
 .hero {
-  background: linear-gradient(120deg, var(--black) 60%, var(--orange) 140%);
+  background: linear-gradient(120deg, #232325 80%, var(--orange) 300%);
   text-align: left;
   padding-top: 3rem;
   padding-bottom: 3rem;
   position: relative;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 20, 20, 0.44);
+  z-index: 1;
+}
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 .hero h1 {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
   color: var(--orange);
+  text-shadow: 2px 2px 8px #141414aa, 0 2px 8px #000a;
 }
 .hero p {
   font-size: 1.33rem;
   margin-bottom: 2rem;
   color: var(--white);
   max-width: 600px;
+  text-shadow: 1px 1px 8px #14141455;
 }
 .cta-btn {
   background: var(--orange);
@@ -119,7 +133,7 @@ section {
   transition: box-shadow 0.2s;
 }
 .card:hover {
-  box-shadow: 0 4px 24px rgba(248, 152, 40, 0.1);
+  box-shadow: 0 4px 24px rgba(246, 134, 31, 0.1);
 }
 ul.feature-list {
   padding: 0;
@@ -182,13 +196,10 @@ footer {
 @media (max-width: 700px) {
   .container,
   section {
-    padding: 1.2rem 0.7rem 1rem 1rem;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
   }
   nav {
     padding: 0 1rem;
-  }
-  .sidebar {
-    display: none;
   }
   section {
     padding-left: 0;
