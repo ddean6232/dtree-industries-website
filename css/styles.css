@@ -1,8 +1,8 @@
 :root {
-  --black: #333333;
+  --black: #333;
   --orange: #f6861f;
   --white: #fff;
-  --gray: #9a9a9a;
+  --gray: #333;
 }
 * {
   box-sizing: border-box;
