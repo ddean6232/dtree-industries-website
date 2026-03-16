@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTree Industries | Business Process Automation & IoT Integration</title>
+  <meta name="description" content="DTree Industries provides global business process automation, IoT integration, and custom workflow solutions. Empowering enterprises through data-led transformation since 1997.">
+  <meta name="keywords" content="automation, IoT, workflow integration, business process, digital transformation, software engineering">
+  <meta property="og:title" content="DTree Industries | Business Process Automation & IoT Integration">
+  <meta property="og:description" content="Global partner in business process automation and IoT integration. Delivering rapid, reliable solutions for a smarter future.">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
@@ -13,7 +20,12 @@
     <span class="logo">
       <img src="images/logo.png" alt="DTree Industries" class="main-logo">
     </span>
-    <ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="nav-menu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -23,6 +35,7 @@
   </nav>
 
   <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="container">
       <h1>Empowering Business Through Automation</h1>
       <p>DTree Industries is your global partner in business process automation, IoT, and workflow integration. We deliver rapid, reliable solutions—driving data-led transformation for enterprises seeking a smarter, more connected future.</p>
@@ -112,6 +125,10 @@
     </div>
     &copy; 2025 DTree Industries Ltd. | All rights reserved.
   </footer>
+
+  <button id="back-to-top" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <script src="js/main.js"></script>
 </body>
