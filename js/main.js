@@ -58,11 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
         body: new URLSearchParams(formData).toString(),
       })
       .then(() => {
-        contactForm.style.display = "none";
-        successMsg.style.display = "flex";
+        contactForm.classList.add("hidden");
+        successMsg.classList.remove("hidden");
       })
       .catch(() => {
-        errorMsg.style.display = "flex";
+        errorMsg.classList.remove("hidden");
       });
     });
   }
