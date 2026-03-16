@@ -37,6 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const heroCta = document.getElementById("hero-cta-btn");
+  if (heroCta) {
+    heroCta.addEventListener("click", scrollToContact);
+  }
+
   // Hero Particle Animation
   const canvas = document.getElementById("hero-canvas");
   if (canvas) {
