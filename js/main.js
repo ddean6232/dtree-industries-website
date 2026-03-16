@@ -42,6 +42,31 @@ document.addEventListener("DOMContentLoaded", () => {
     heroCta.addEventListener("click", scrollToContact);
   }
 
+  // Netlify Form Submission
+  const contactForm = document.querySelector(".contact-form");
+  const successMsg = document.getElementById("form-success");
+  const errorMsg = document.getElementById("form-error");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        contactForm.style.display = "none";
+        successMsg.style.display = "flex";
+      })
+      .catch(() => {
+        errorMsg.style.display = "flex";
+      });
+    });
+  }
+
   // Hero Particle Animation
   const canvas = document.getElementById("hero-canvas");
   if (canvas) {
