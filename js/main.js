@@ -26,14 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
-    document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "";
+    document.body.classList.toggle("no-scroll");
   });
 
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
-      document.body.style.overflow = "";
+      document.body.classList.remove("no-scroll");
     });
   });
 

@@ -9,6 +9,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: "Montserrat", Arial, sans-serif;
@@ -110,6 +113,10 @@ section {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+.no-scroll {
+  overflow: hidden;
 }
 section.revealed {
   opacity: 1;
