@@ -240,6 +240,14 @@ ul.feature-list li:before {
 .contact-form button {
   width: 100%;
 }
+.email-link {
+  color: var(--orange);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.email-link:hover {
+  opacity: 0.8;
+}
 footer {
   background: #131313;
   color: var(--white);
